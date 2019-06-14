@@ -1,0 +1,30 @@
+
+/* fonts */
+
+/* font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Exo', sans-serif; 
+font-family: 'Economica', sans-serif;*/
+
+body{
+  font-family:'Source Sans Pro', sans-serif;
+}
+#page-container{
+  background-image: url("../static/images/background-reg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom;
+  background-size: cover;
+  height: 100vh;
+  color: #fff;
+}
+
+a{
+  text-decoration: none;
+  color: white!important;
+}
+
+a.navbar-brand{
+  color: white!important;
+}
+
+

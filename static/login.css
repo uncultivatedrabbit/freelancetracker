@@ -1,0 +1,55 @@
+.container.login{
+  background-color: rgba(30, 39, 46, .9)!important;
+  width: 30%;
+  height: auto;
+  margin-top: 4em;
+  padding: 1em;
+  text-align: center;
+  font-family: 'Economica', sans-serif;
+  font-size: 1.2rem;
+  border-radius: 1em;
+
+}
+
+
+@media screen and (min-width: 1600px){
+  .container.login{
+    width: 20%;
+    margin-top: 8em;
+  }
+}
+
+
+.container.login h2{
+  font-size: 3rem;
+}
+
+.form-group{
+  text-align: left;
+}
+
+hr{
+  background: #fff;
+}
+
+.btn,
+.form-control{
+  font-weight: 600;
+  font-size: inherit;
+}
+
+.register-now{
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+.register-now p {
+  font-size: 1.2em;
+}
+
+a.btn.btn-primary{
+  height: 20%;
+}
