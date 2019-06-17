@@ -5,8 +5,10 @@
 font-family: 'Exo', sans-serif; 
 font-family: 'Economica', sans-serif;*/
 
+/* global */
 body{
   font-family:'Source Sans Pro', sans-serif;
+  
 }
 #page-container{
   background-image: url("../static/images/background-reg.jpg");
@@ -18,6 +20,7 @@ body{
   color: #fff;
 }
 
+
 a{
   text-decoration: none;
   color: white!important;
@@ -28,3 +31,27 @@ a.navbar-brand{
 }
 
 
+/* apology page css */
+#apology{
+  margin-top: 4em;
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: rotation 3s infinite linear;
+  width: auto;
+  height: 15em;
+  
+}
+
+@keyframes rotation{
+  from{
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(359deg);
+  }
+}
+
+@media screen and (max-width: 780px){
+  #apology{
+    height: 20em;
+    width: auto;
+  }
+}

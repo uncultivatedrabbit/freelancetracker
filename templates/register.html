@@ -4,5 +4,28 @@
 
 {% block main %}
 
+<div class="container login">
+    <h2>Register Here</h2>
+      <form action="/register" method="post">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="reg-username" name="username" autofocus autocomplete="off"class="form-control">
+          <span id="reg-username-warning"></span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="reg-password" name="password" autofocus autocomplete="off" class="form-control">
+          <span id="reg-password-warning"></span>
+      </div>
+      <div class="form-group">
+          <label for="confirmation">Confirm Password:</label>
+          <input type="password" id="reg-confirmation" name="confirmation" autofocus autocomplete="off" class="form-control">
+          <span id="reg-confirmation-warning"></span>
+          <span id="reg-match-warning"></span>
+      </div>
+      <button id="register-button" type="submit" class="btn btn-primary">Register</button>
+    </form>
+   
+  </div>
 
 {% endblock %}
