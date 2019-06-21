@@ -55,3 +55,12 @@ a.navbar-brand{
     width: auto;
   }
 }
+
+/* registration / login form warnings */
+.form-warning{
+  border: 2px solid #e55039;
+}
+
+.form-warning-2{
+  background-color: #e55039;
+}
