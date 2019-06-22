@@ -104,14 +104,12 @@ def logout():
   session.clear()
   return render_template("login.html")
 
-  @app.route("/timetracker", methods=["GET, POST"])
-  @login_required
-  def timetracker():
-    if request.method == "GET":
-      return render_template("timetracker.html")
+@app.route("/timetracker")
+@login_required
+def timetracker():
+  return render_template("timetracker.html")
 
-  @app.route("/todo", methods=["GET, POST"])
-  @login_required
-  def todoList():
-    if request.method == "GET":
-      render_template("todo.html")
+@app.route("/todo")
+@login_required
+def todoList():
+  return render_template("todo.html")

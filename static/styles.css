@@ -20,16 +20,44 @@ body{
   color: #fff;
 }
 
+#page-container a{
+  color: white;
+}
 
-a{
+#inside-page-container{
+  background-image: url("../static/images/square-background.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: left;
+  background-size: cover;
+  height: 100vh;
+  color: black;
+}
+
+#inside-page-container a{
+  color: black;
+}
+
+
+a.nav-link{
   text-decoration: none;
-  color: white!important;
 }
 
-a.navbar-brand{
-  color: white!important;
+a.nav-link.session-user:hover{
+  text-decoration: none;
 }
 
+#inside-page-container a.nav-link.clickable:hover{
+  background: black;
+  color: white;
+  text-decoration: none;
+}
+
+#page-container a.nav-link.clickable-2:hover{
+  background: white;
+  color: black;
+  text-decoration: none;
+}
 
 /* apology page css */
 #apology{
@@ -58,9 +86,50 @@ a.navbar-brand{
 
 /* registration / login form warnings */
 .form-warning{
-  border: 2px solid #e55039;
+  border: 2px solid #eb2f06;
 }
 
 .form-warning-2{
-  background-color: #e55039;
+  background-color: #eb2f06;
+}
+
+/* image overlays */
+
+
+#timetracker-img,
+#todo-img{
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0);
+ 
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: auto;
+  height: 100%;
+  width: 94.8%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: black;
+}
+
+.action-image-1:hover .overlay {
+  opacity: .9;
+}
+
+.timetracker-text,
+.todo-text{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
