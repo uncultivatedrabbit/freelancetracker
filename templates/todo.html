@@ -1,4 +1,35 @@
 {% extends "layout.html" %}
 {% block title %}To Do List {% endblock %}
 
-{% block main %}{% endblock %}
+{% block main %}
+
+
+<div class=" container">
+  <div class="row justify-content-center my-3">
+    <h2>What do you need to accomplish today?</h2>
+  </div>
+  <div class="row justify-content-center">
+    <form class="form-inline" action="/todo" method="post">
+      <div class="form-group">
+          <input type="text" class="form-control" name="todo-item" id="todo-list" name="todo-list">
+          <button class="btn btn-danger mx-2 " type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<div class="container my-2">
+  <div class="list-group">
+    {% for item in items %}
+    <a href="#" class="d-flex justify-content-between list-group-item-light list-group-item-action list-group-item align-items-center">
+        {% filter upper %}
+          {{ item[0] }}
+        {% endfilter %}
+          <button type="submit" class="btn btn-light"> x </button>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

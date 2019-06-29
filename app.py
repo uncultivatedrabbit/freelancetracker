@@ -109,7 +109,26 @@ def logout():
 def timetracker():
   return render_template("timetracker.html")
 
-@app.route("/todo")
+
+@app.route("/todo", methods=["GET", "POST"])
 @login_required
-def todoList():
-  return render_template("todo.html")
+def todo():
+  todoItem = request.form.get("todo-item")
+  if request.method == "POST":
+    if not todoItem:
+      return apology("please enter a valid item")
+
+    db.execute("INSERT INTO todolist (todoitem) VALUES (:todoItem)", {"todoItem":todoItem})
+    db.commit()
+
+    items = db.execute("SELECT todoitem FROM todolist")
+  
+    return render_template("todo.html", items=items)
+
+  else:
+    items = db.execute("SELECT todoitem FROM todolist")
+
+    return render_template("todo.html", items=items)
+
+if __name__ == '__main__':
+   app.run(debug = True)
