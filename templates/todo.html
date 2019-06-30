@@ -6,12 +6,12 @@
 
 <div class=" container">
   <div class="row justify-content-center my-3">
-    <h2>What do you need to accomplish today?</h2>
+    <h1 class="todo-header">What do you need to accomplish today?</h1>
   </div>
   <div class="row justify-content-center">
     <form class="form-inline" action="/todo" method="post">
       <div class="form-group">
-          <input type="text" class="form-control" name="todo-item" id="todo-list" name="todo-list">
+          <input type="text" class="form-control" name="todo-item" id="todo-list">
           <button class="btn btn-danger mx-2 " type="submit">Add</button>
       </div>
     </form>
@@ -24,9 +24,12 @@
     {% for item in items %}
     <a href="#" class="d-flex justify-content-between list-group-item-light list-group-item-action list-group-item align-items-center">
         {% filter upper %}
-          {{ item[0] }}
+          {{ item.todoitem }}
         {% endfilter %}
-          <button type="submit" class="btn btn-light"> x </button>
+        <form action="{{ url_for('delete_item', deleteitem = item.todoitem)}}" method="post">
+          <input type="hidden"  class="form-control" name="item_to_delete">
+          <button type="submit"  class="btn btn-light delete-button"> x </button>
+        </form>
     </a>
     {% endfor %}
   </div>

@@ -122,7 +122,7 @@ def todo():
     db.commit()
 
     items = db.execute("SELECT todoitem FROM todolist")
-  
+
     return render_template("todo.html", items=items)
 
   else:
@@ -130,5 +130,18 @@ def todo():
 
     return render_template("todo.html", items=items)
 
-if __name__ == '__main__':
+
+@app.route("/delete/<deleteitem>", methods=["POST"])
+@login_required
+def delete_item(deleteitem):
+
+    db.execute("INSERT INTO completedtasks SELECT todoitem FROM todolist WHERE todoitem = :deleteitem", {"deleteitem": deleteitem})
+    db.commit()
+    db.execute("DELETE FROM todolist WHERE todoitem = :deleteitem", {"deleteitem": deleteitem})
+    db.commit()
+    flash('Item Marked as Complete!', 'info')
+    return redirect(url_for('todo'))
+
+
+if __name__ == "__main__":
    app.run(debug = True)

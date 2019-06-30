@@ -8,7 +8,10 @@ font-family: 'Economica', sans-serif;*/
 /* global */
 body{
   font-family:'Source Sans Pro', sans-serif;
-  
+}
+h1,
+h2{
+  font-family: 'Exo', sans-serif;
 }
 #page-container{
   background-image: url("../static/images/background-reg.jpg");
@@ -66,9 +69,12 @@ a.nav-link.session-user:hover{
 /* forms */
 @media screen and (min-width: 576px) {
   input#todo-list {
-    width: 25em;
+    width: 37em;
   }
 }
+
+
+
 /* apology page css */
 #apology{
   margin-top: 4em;
@@ -144,3 +150,21 @@ a.nav-link.session-user:hover{
   text-align: center;
 }
 
+/* to-do list */
+
+.todo-header{
+  text-transform: capitalize;
+}
+
+a.d-flex.justify-content-between.list-group-item-light.list-group-item-action.list-group-item.align-items-center{
+  width: 42em;
+}
+
+.list-group{
+  align-items: center;
+}
+
+.delete-button:hover{
+  background-color:rgb(220, 53, 69);
+  color: white;
+}

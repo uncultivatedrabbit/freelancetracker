@@ -4,12 +4,12 @@
 
 {% block main %}
 <div class="container main">
-  <div class="row">
-      <h1>Welcome 
+  <div class="row my-4 justify-content-center">
+      <h1 class="homepage-header">Welcome 
           {% filter upper %}
-          {{session.user_name}},
+          {{session.user_name}}!
           {% endfilter %}
-          what would you like to do?</h1>
+          </h1>
   </div>
   
   <div class="row overlay-images">
