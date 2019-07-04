@@ -156,8 +156,8 @@ a.nav-link.session-user:hover{
   text-transform: capitalize;
 }
 
-a.d-flex.justify-content-between.list-group-item-light.list-group-item-action.list-group-item.align-items-center{
-  width: 42em;
+a.d-flex.bd-highlight.mb-1.list-group-item-light.list-group-item-action.list-group-item{
+  width: 41em;
 }
 
 .list-group{
@@ -168,3 +168,9 @@ a.d-flex.justify-content-between.list-group-item-light.list-group-item-action.li
   background-color:rgb(220, 53, 69);
   color: white;
 }
+
+button.btn.btn-light.pb-2.bd-highlight.complete-button:hover{
+  background-color: #007BFF;
+  color: white;
+}
+

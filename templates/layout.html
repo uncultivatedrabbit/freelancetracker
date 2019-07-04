@@ -41,13 +41,12 @@
               <li class="nav-item"><a class="nav-link clickable-2" href="/login"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
           </ul>
           {% endif %}
-        </div>    
-      </nav> 
-    
+        </div>
+      </nav>
+
       {% if get_flashed_messages() %}
       <div class="alert alert-info text-center" role="alert">
         {{ get_flashed_messages() | join(" ") }}
-        
       </div>
       {% endif %}
 

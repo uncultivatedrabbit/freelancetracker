@@ -53,3 +53,14 @@ if (document.querySelector("#login-btn")){
   })
 }
 
+if (document.querySelector("#add-button")){
+  btn = document.querySelector("#add-button")
+  btn.disabled = true;
+  document.querySelector("#todo-list").addEventListener("input", function(e){
+    if (document.querySelector("#todo-list").value == ""){
+      btn.disabled = true;
+    } else {
+      btn.disabled = false;
+    }
+  })
+}

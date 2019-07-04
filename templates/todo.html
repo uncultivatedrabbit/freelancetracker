@@ -9,10 +9,12 @@
     <h1 class="todo-header">What do you need to accomplish today?</h1>
   </div>
   <div class="row justify-content-center">
-    <form class="form-inline" action="/todo" method="post">
+    <form class="form-inline" action="/todo" method="post" autocomplete="off">
       <div class="form-group">
           <input type="text" class="form-control" name="todo-item" id="todo-list">
-          <button class="btn btn-danger mx-2 " type="submit">Add</button>
+          <button class="btn btn-info mx-2 " id="add-button" type="submit"><i class="fas fa-plus"></i>
+
+          </button>
       </div>
     </form>
   </div>
@@ -22,13 +24,25 @@
 <div class="container my-2">
   <div class="list-group">
     {% for item in items %}
-    <a href="#" class="d-flex justify-content-between list-group-item-light list-group-item-action list-group-item align-items-center">
-        {% filter upper %}
+    <a draggable="true" href="#" class="d-flex bd-highlight mb-1 list-group-item-light list-group-item-action list-group-item">
+      <div class="mr-auto p-2 bd-highlight">
+          <span>{{ loop.index }})</span>
+          {% filter upper %}
+          
           {{ item.todoitem }}
         {% endfilter %}
-        <form action="{{ url_for('delete_item', deleteitem = item.todoitem)}}" method="post">
+      </div>
+        <form action="{{ url_for('complete_item', completeitem = item.todoitem)}}" method="post">
+          <input type="hidden"  class="form-control" name="item_to_complete">
+          <button type="submit"  class="btn btn-light pb-2 mx-1 bd-highlight complete-button"> <i class="fas fa-check"></i>
+          </button>
+        </form>
+        <form action="{{ url_for('delete_item', deleteitem = item.todoitem )}}" method="post">
           <input type="hidden"  class="form-control" name="item_to_delete">
-          <button type="submit"  class="btn btn-light delete-button"> x </button>
+          <button type="submit"  class="btn btn-light pb-2  bd-highlight delete-button"> <i class="fas fa-trash-alt"></i>
+
+          </i>
+          </button>
         </form>
     </a>
     {% endfor %}

@@ -109,6 +109,11 @@ def logout():
 def timetracker():
   return render_template("timetracker.html")
 
+@app.route("/todolist", methods=["GET", "POST"])
+@login_required
+def todolist():
+  items = db.execute("SELECT todoitem FROM todolist")
+  return render_template("todo.html",items=items)
 
 @app.route("/todo", methods=["GET", "POST"])
 @login_required
@@ -121,25 +126,31 @@ def todo():
     db.execute("INSERT INTO todolist (todoitem) VALUES (:todoItem)", {"todoItem":todoItem})
     db.commit()
 
-    items = db.execute("SELECT todoitem FROM todolist")
-
-    return render_template("todo.html", items=items)
+    return redirect( url_for("todolist"))
 
   else:
-    items = db.execute("SELECT todoitem FROM todolist")
+    return redirect( url_for("todolist"))
 
-    return render_template("todo.html", items=items)
+@app.route("/complete/<completeitem>", methods=["POST"])
+@login_required
+def complete_item(completeitem):
+
+    db.execute("INSERT INTO completedtasks SELECT todoitem FROM todolist WHERE todoitem = :completeitem", {"completeitem": completeitem})
+    db.commit()
+    db.execute("DELETE FROM todolist WHERE todoitem = :completeitem", {"completeitem": completeitem})
+    db.commit()
+    flash('Item Marked as Complete!', 'info')
+    return redirect(url_for('todo'))
+
 
 
 @app.route("/delete/<deleteitem>", methods=["POST"])
 @login_required
 def delete_item(deleteitem):
 
-    db.execute("INSERT INTO completedtasks SELECT todoitem FROM todolist WHERE todoitem = :deleteitem", {"deleteitem": deleteitem})
-    db.commit()
     db.execute("DELETE FROM todolist WHERE todoitem = :deleteitem", {"deleteitem": deleteitem})
     db.commit()
-    flash('Item Marked as Complete!', 'info')
+    flash('Item Deleted!', 'info')
     return redirect(url_for('todo'))
 
 
