@@ -104,7 +104,7 @@ def logout():
   session.clear()
   return render_template("login.html")
 
-@app.route("/timetracker")
+@app.route("/timetracker", methods=["GET", "POST"])
 @login_required
 def timetracker():
   return render_template("timetracker.html")
@@ -152,6 +152,7 @@ def delete_item(deleteitem):
     db.commit()
     flash('Item Deleted!', 'info')
     return redirect(url_for('todo'))
+
 
 
 if __name__ == "__main__":

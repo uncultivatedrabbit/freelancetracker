@@ -1,4 +1,28 @@
 {% extends "layout.html" %}
 {% block title %}Timetracker {% endblock %}
 
-{% block main %}{% endblock %}
+{% block main %}
+<div class="container">
+  <div class="row justify-content-center my-3">
+  
+    <button id="start-time" class="btn btn-lg btn-primary">Start</button>
+  
+  
+    <button id="end-time" class="btn mx-1 btn-lg btn-danger">End</button>
+ 
+
+  </div>
+  <div class="row justify-content-center">
+      <span id="start-time-stamp"></span>
+  </div>
+  <div class="row justify-content-center">
+    <span id="end-time-stamp"></span>
+  </div>
+  <div class="row justify-content-center">
+      <span id="total-time-stamp"></span>
+    </div>
+  
+</div>
+
+
+{% endblock %}

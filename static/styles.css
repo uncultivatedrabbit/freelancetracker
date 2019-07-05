@@ -174,3 +174,9 @@ button.btn.btn-light.pb-2.bd-highlight.complete-button:hover{
   color: white;
 }
 
+/* timetracker styles */
+#start-time-stamp,
+#end-time-stamp{
+  font-weight: 700;
+  font-size: 10rem;
+}
