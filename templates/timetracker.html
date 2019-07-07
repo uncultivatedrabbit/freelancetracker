@@ -2,27 +2,22 @@
 {% block title %}Timetracker {% endblock %}
 
 {% block main %}
-<div class="container">
-  <div class="row justify-content-center my-3">
-  
-    <button id="start-time" class="btn btn-lg btn-primary">Start</button>
-  
-  
-    <button id="end-time" class="btn mx-1 btn-lg btn-danger">End</button>
+<div class="container clock-container">
+  <div class="row my-3">
+    <div class="col col-8">
+        <h1 id="digital-clock">00:00:00</h1>
+    </div>
+    <div class="col col-2">
+        <button id="startStop" class="btn ml-3 btn-lg btn-success"><i class="fas fa-play"></i></button>
+    </div>      
+    <div class="col col-2">
+        <button id="reset" class="btn ml-3 btn-lg btn-danger"><i class="fas fa-redo"></i></button>
+    </div>
+    
+  </div>
+
  
 
-  </div>
-  <div class="row justify-content-center">
-      <span id="start-time-stamp"></span>
-  </div>
-  <div class="row justify-content-center">
-    <span id="end-time-stamp"></span>
-  </div>
-  <div class="row justify-content-center">
-      <span id="total-time-stamp"></span>
-    </div>
-  
-</div>
 
 
 {% endblock %}

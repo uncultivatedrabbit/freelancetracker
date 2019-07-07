@@ -174,9 +174,36 @@ button.btn.btn-light.pb-2.bd-highlight.complete-button:hover{
   color: white;
 }
 
-/* timetracker styles */
-#start-time-stamp,
-#end-time-stamp{
-  font-weight: 700;
+/* stopwatchstyles */
+.clock-container{
+  background-color: black;
+  color: white;
+}
+
+#digital-clock{
+  font-weight: 400;
   font-size: 10rem;
+}
+
+#startStop,
+#reset{
+  border-radius: 50%;
+  width: 8em;
+  height: 8em;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.fa-play,
+.fa-pause,
+.fa-redo{
+  font-size: 4em;
+}
+
+.fa-play{
+  margin-left: 10px;
+}
+
+.fa-redo{
+  margin-right: 5px;
 }

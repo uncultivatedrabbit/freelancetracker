@@ -65,26 +65,79 @@ if (document.querySelector("#add-button")){
   })
 }
 
-if (document.querySelector("#start-time")){
-  let startBtn = document.querySelector("#start-time");
-  let endBtn = document.querySelector("#end-time");
-  startBtn.disabled = false;
-  endBtn.disabled = true;
-  let startTime = 0;
+if (document.querySelector("#startStop")){
+
+  let displaySeconds = 0;
+  let displayMinutes = 0;
+  let displayHours = 0;
+  let startBtn = document.querySelector("#startStop");
+  let resetBtn = document.querySelector("#reset");
+  let digitalClock = document.querySelector("#digital-clock");
+  let seconds = 0;
+  let minutes = 0;
+  let hours = 0;
+  let status = false;
+
+  //build timer function
   function startTimer(){
-    startTime++;
-    document.querySelector("#start-time-stamp").innerHTML = startTime;
+    seconds++
+
+    if (seconds / 60 == 1){
+      seconds = 0;
+      minutes++;
+      if (minutes / 60 == 1){
+        minutes = 0;
+        hours++;
+      }
+    }
+
+    if (seconds < 10){
+      displaySeconds = "0" + seconds.toString();
+    } else {
+      displaySeconds = seconds;
+    }
+  
+    if (minutes < 10){
+      displayMinutes = "0" + minutes.toString();
+    } else {
+      displayMinutes = minutes;
+    }
+  
+    if (hours < 10){
+      displayHours = "0" + hours.toString();
+    } else {
+      displayHours = hours;
+    }
+
+    digitalClock.innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
   }
-      startBtn.addEventListener("click", () => {
-      startBtn.disabled = true;
-      endBtn.disabled = false;
-      let start = setInterval(startTimer, 1000)
-      endBtn.addEventListener("click", () => {
-        clearInterval(start)
-        startBtn.disabled = false;
-        endBtn.disabled = true;
-      })
-    })
+
+  startBtn.addEventListener("click", () => {
+    if (status == false) {
+      status = true;
+      start = setInterval(startTimer, 1000);
+      startBtn.innerHTML = '<i class="fas fa-pause"></i>'
+      startBtn.classList.remove("btn-success");
+      startBtn.classList.add("btn-warning");
+    } else {
+      status = false;
+      clearInterval(start);
+      startBtn.innerHTML = '<i class="fas fa-play"></i>'
+      startBtn.classList.add("btn-success");
+      startBtn.classList.remove("btn-warning");
+    }
+  })
+
+  resetBtn.addEventListener("click", () => {
+    clearInterval(start);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    digitalClock.innerHTML = "00:00:00";
+    startBtn.innerHTML = '<i class="fas fa-play"></i>';
+    startBtn.classList.add("btn-success");
+    startBtn.classList.remove("btn-warning");
+  })
 
 
 }
