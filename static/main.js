@@ -1,3 +1,13 @@
+document.querySelector("#dropdownMenuButton").addEventListener('click', () => {
+  document.querySelector("#overlay-nav").style.width = "100%";
+})
+
+document.querySelector("#overlay-nav").addEventListener('click', () => {
+  document.querySelector("#overlay-nav").style.width = "0%";
+})
+
+
+
 // tests the registration page to ensure user inputs information correctly
  let username = document.querySelector("#reg-username");
  let password = document.querySelector("#reg-password");

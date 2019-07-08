@@ -3,17 +3,19 @@
 
 {% block main %}
 <div class="container clock-container">
-  <div class="row my-3">
-    <div class="col col-8">
-        <h1 id="digital-clock">00:00:00</h1>
+  <div class="d-flex">
+    <div class=" mr-auto p-2">
+        <h2 id="digital-clock">00:00:00</h2>
     </div>
-    <div class="col col-2">
+    <div class="p-2">
         <button id="startStop" class="btn ml-3 btn-lg btn-success"><i class="fas fa-play"></i></button>
     </div>      
-    <div class="col col-2">
-        <button id="reset" class="btn ml-3 btn-lg btn-danger"><i class="fas fa-redo"></i></button>
+    <div class="p-2">
+        <button id="stop" class="btn ml-3 btn-lg btn-danger"><i class="fas fa-stop"></i></button>
     </div>
-    
+    <div class="p-2">
+        <button id="reset" class="btn ml-3 btn-lg btn-light"><i class="fas fa-redo"></i></button>
+    </div>
   </div>
 
  

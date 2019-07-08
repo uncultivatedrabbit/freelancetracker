@@ -20,3 +20,94 @@ a.nav-link:hover, a.nav-link:focus{
 
 }
 
+
+@media screen and (max-width: 992px){
+  .regular{
+    display: none;
+  }
+  .fa-bars{
+    font-size: 25px;
+  }
+  .fa-bars:hover{
+    color: white;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+     animation: glow 1s ease-in-out infinite alternate;
+  }
+
+  .dropdown.out > .mobile-button{
+    color: white;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #1B9CFC, 0 0 30px #1B9CFC, 0 0 40px #1B9CFC, 0 0 50px #1B9CFC, 0 0 60px #1B9CFC;
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 20px #25CCF7, 0 0 30px #25CCF7, 0 0 40px #25CCF7, 0 0 50px #25CCF7, 0 0 60px #25CCF7, 0 0 70px #25CCF7;
+    }
+  }
+
+  .dropdown-item{
+    display: block;
+  }
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  
+  }
+
+} 
+
+
+@media screen and (min-width: 991px){
+  .mobile{
+    display: none;
+  }
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+  opacity: 1;
+  
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181!important;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a.nav-link.clickable:hover{
+  background: none!important;
+  color: #f1f1f1!important;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  right: 10px;
+  bottom: 14.9em;
+  font-size: 60px;
+}
+
+
