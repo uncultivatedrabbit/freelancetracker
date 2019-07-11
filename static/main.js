@@ -77,16 +77,27 @@ if (document.querySelector("#add-button")){
 
 if (document.querySelector("#startStop")){
 
-  let displaySeconds = 0;
-  let displayMinutes = 0;
-  let displayHours = 0;
+  
+  let displaySeconds;
+  let displayMinutes;
+  let displayHours;
+  if (localStorage.getItem('current seconds') > 0 || localStorage.getItem('current minutes') > 0 || localStorage.getItem('current hours')> 0) {
+    var seconds = localStorage.getItem('current seconds');
+    var minutes = localStorage.getItem('current minutes');
+    var hours = localStorage.getItem('current hours');
+  } else {
+    var seconds = 0;
+    var minutes = 0;
+    var hours = 0;
+  }
+
   let startBtn = document.querySelector("#startStop");
   let resetBtn = document.querySelector("#reset");
+  let stopBtn = document.querySelector("#stop")
   let digitalClock = document.querySelector("#digital-clock");
-  let seconds = 0;
-  let minutes = 0;
-  let hours = 0;
   let status = false;
+  let timeInput = document.querySelector("#total-time");
+  timeInput.disabled = true;
 
   //build timer function
   function startTimer(){
@@ -102,24 +113,33 @@ if (document.querySelector("#startStop")){
     }
 
     if (seconds < 10){
-      displaySeconds = "0" + seconds.toString();
+        displaySeconds = "0" + seconds.toString();
     } else {
       displaySeconds = seconds;
     }
-  
     if (minutes < 10){
-      displayMinutes = "0" + minutes.toString();
+        displayMinutes = "0" + minutes.toString();
+        if (displayMinutes.length > 2){
+          temp = displayMinutes.slice(1);
+          displayMinutes = temp;
+        }
     } else {
       displayMinutes = minutes;
     }
-  
+
     if (hours < 10){
       displayHours = "0" + hours.toString();
+      if (displayHours.length > 2){
+        temp = displayHours.slice(1);
+        displayHours = temp;
+      }
     } else {
       displayHours = hours;
     }
-
-    digitalClock.innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+    localStorage.setItem('current seconds', displaySeconds);
+    localStorage.setItem('current minutes', displayMinutes);
+    localStorage.setItem('current hours', displayHours);
+    digitalClock.innerHTML = localStorage.getItem('current hours') + ':' + localStorage.getItem('current minutes') + ':' + localStorage.getItem('current seconds');
   }
 
   startBtn.addEventListener("click", () => {
@@ -131,6 +151,7 @@ if (document.querySelector("#startStop")){
       startBtn.classList.add("btn-warning");
     } else {
       status = false;
+      localStorage.getItem('current time');
       clearInterval(start);
       startBtn.innerHTML = '<i class="fas fa-play"></i>'
       startBtn.classList.add("btn-success");
@@ -143,11 +164,28 @@ if (document.querySelector("#startStop")){
     seconds = 0;
     minutes = 0;
     hours = 0;
+    localStorage.setItem('current seconds', 0);
+    localStorage.setItem('current minutes', 0);
+    localStorage.setItem('current hours', 0);
     digitalClock.innerHTML = "00:00:00";
     startBtn.innerHTML = '<i class="fas fa-play"></i>';
     startBtn.classList.add("btn-success");
     startBtn.classList.remove("btn-warning");
   })
+
+  stopBtn.addEventListener("click", () => {
+    clearInterval(start);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    localStorage.setItem('current seconds', 0);
+    localStorage.setItem('current minutes', 0);
+    localStorage.setItem('current hours', 0);
+    let totalTime = digitalClock.innerHTML;
+    document.querySelector("#total-time").value = totalTime;
+  })
+
+
 
 
 }
