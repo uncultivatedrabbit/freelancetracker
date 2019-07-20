@@ -28,7 +28,7 @@
       <div class="mr-auto p-2 bd-highlight">
           <span>{{ loop.index }})</span>
           {% filter upper %}
-          
+
           {{ item.todoitem }}
         {% endfilter %}
       </div>
@@ -48,5 +48,26 @@
     {% endfor %}
   </div>
 </div>
+
+<div class="container my-2">
+  <div class="row d-flex justify-content-center">
+      <button id="display-completed" class="btn mb-3 btn-dark display-completed">
+        <i class="fas fa-chevron-circle-down"></i>
+      </button>
+  </div>
+  <div class="list-group hidden" id="hidden">
+    {% for completedItem in completedItems %}
+    <a draggable="true" href="#" class="d-flex bd-highlight mb-1 list-group-item-light list-group-item-action list-group-item text-muted">
+      <div class="mr-auto p-2 bd-highlight">
+          <span>{{ loop.index }})</span>
+          {% filter upper %}
+          {{ completedItem.completedtask}}
+          {% endfilter %}
+      </div>
+      {% endfor %}
+      </a>
+  </div>
+</div>
+<br><br><br>
 
 {% endblock %}

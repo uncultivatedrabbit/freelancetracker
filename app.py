@@ -113,7 +113,8 @@ def timetracker():
 @login_required
 def todolist():
   items = db.execute("SELECT todoitem FROM todolist")
-  return render_template("todo.html",items=items)
+  completedItems = db.execute("SELECT completedtask FROM completedtasks")
+  return render_template("todo.html",items=items, completedItems = completedItems)
 
 @app.route("/todo", methods=["GET", "POST"])
 @login_required

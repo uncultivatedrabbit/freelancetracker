@@ -57,12 +57,14 @@ a.nav-link.session-user:hover{
   background: black;
   color: white;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 #page-container a.nav-link.clickable-2:hover{
   background: white;
   color: black;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 
@@ -151,6 +153,87 @@ a.nav-link.session-user:hover{
 }
 
 /* to-do list */
+
+.hidden{
+  display: none;
+}
+
+
+@keyframes animateTasks {
+  0% {
+    content: "S";
+  }
+  5% {
+    content: "Sh";
+  }
+  10% {
+    content: "Sho";
+  }
+  15%{
+    content: "Show"
+  }
+  20%{
+    content:"Show "
+  }
+  25%{
+    content: "Show C"
+  }
+  30%{
+    content: "Show Co"
+  }
+  35%{
+    content: "Show Com"
+  }
+  40%{
+    content: "Show Comp"
+  }
+  45%{
+    content: "Show Compl"
+  }
+  50%{
+    content: "Show Comple"
+  }
+  55%{
+    content: "Show Complet"
+  }
+  60%{
+    content: "Show Complete"
+  }
+  65%{
+    content: "Show Completed"
+  }
+  70%{
+    content: "Show Completed "
+  }
+  75%{
+    content: "Show Completed T"
+  }
+  80%{
+    content: "Show Completed Ta"
+  }
+  85%{
+    content: "Show Completed Tas"
+  }
+  90%{
+    content: "Show Completed Task"
+  }
+  95%{
+    content: "Show Completed Tasks"
+  }
+  100%{
+    content: "Show Completed Tasks "
+  }
+}
+
+.display-completed:hover:before{
+  content: "Show Completed Tasks ";
+  animation: animateTasks .1s linear;
+}
+
+
+.fa-chevron-circle-down{
+  font-size: 16px;
+}
 
 .todo-header{
   text-transform: capitalize;

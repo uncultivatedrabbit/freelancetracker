@@ -184,8 +184,28 @@ if (document.querySelector("#startStop")){
     let totalTime = digitalClock.innerHTML;
     document.querySelector("#total-time").value = totalTime;
   })
-
-
-
-
 }
+
+
+// display completed items
+if(document.querySelector("#display-completed")){
+  btn = document.querySelector("#display-completed");
+  hidden = document.querySelector("#hidden");
+  btn.addEventListener("click", () => {
+    if (hidden.classList.contains("hidden")){
+      hidden.classList.remove("hidden");
+      btn.classList.remove("display-completed");
+      btn.innerHTML = "Hide Completed Tasks";
+    } else {
+      hidden.classList.add("hidden");
+      btn.classList.add("display-completed");
+      btn.innerHTML = '<i class="fas fa-chevron-circle-down"></i>';
+    }
+  })
+  // btn.addEventListener("mouseenter", () => {
+  //   btn.classList.add("complete-button-change");
+  // })
+  // btn.addEventListener("mouseleave", () =>{
+  //   btn.innerHTML = '<i class="fas fa-chevron-circle-down"></i>';
+  // })
+};
